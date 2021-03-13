@@ -1,14 +1,13 @@
 import { Router } from 'express';
 import User from '../../models/User';
-import mongoose, { Query } from 'mongoose';
+import mongoose from 'mongoose';
 // initial of a route
-
-const adminRouter = Router();
 
 interface IUser extends mongoose.Document {
 	name: string;
 	url?: string;
 }
+const adminRouter = Router();
 
 // ROUTES
 
@@ -25,7 +24,7 @@ adminRouter.post('/', async (req, res) => {
 		const user = await User.create({ name });
 		await user.save();
 
-		return res.status(201).json({ message: 'created', data: user });
+		return res.status(201).json({ message: 'created', user });
 	} catch (error) {
 		console.log(error);
 	}
