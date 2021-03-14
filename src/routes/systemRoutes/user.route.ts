@@ -12,6 +12,16 @@ const usersRouter = Router();
 
 // ROUTES
 
+usersRouter.post('/store', async (req, res) => {
+	try {
+		// const user: IUser[] = await (await User.find()).filter(e => e)
+
+		return res.status(200).json({ message: 'resp' });
+	} catch (error) {
+		console.log(error);
+	}
+});
+
 usersRouter.get('/', async (req, res) => {
 	try {
 		const user: IUser[] = await (await User.find()).filter(e => e);
